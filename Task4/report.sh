@@ -1,0 +1,20 @@
+#!/bin/bash
+
+logged_user="$(whoami)"
+today_date="$(date)"
+cpu_cores="$(nproc)"
+free_space="$(df | awk '{sum+=$4} END {printf "%.02f", sum/1e6}')"
+ram="$(free -m | awk '{sum+=$2} END {printf "%.0f", sum/1e3}')"
+last_logs="$(last -n 10 | grep -v 'reboot' | awk '{print $1}' | head -n -2)"
+python_procs="$(ps aux | grep python | wc | awk '{ print $1 }')"
+perl_procs="$(ps aux | grep perl | wc | awk '{ print $1 }')"
+
+echo "Hello $logged_user"
+echo "Today is $today_date"
+echo "PC report"
+echo "Number of CPU cores $cpu_cores"
+echo "You have $free_space GB free memory on disk."
+echo "You have $ram GB of total ram."
+echo "Last 5 user logged in: $last_logs"
+echo "Number of active Python process $python_procs"
+echo "Number of active Perl process $perl_procs"
