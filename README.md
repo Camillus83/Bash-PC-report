@@ -127,3 +127,17 @@ else
     f2 $1
 fi
 ```
+
+```
+report.sh
+
+```
+
+Cronjob
+```
+crontab -e
+0 16 * * * /home/kamil/task1-from-expert/Task4/report.sh | ssmtp kamilrichter98@gmail.com
+```
+
+Result:
+![image](https://user-images.githubusercontent.com/87909623/208456477-5fb0259e-85ce-4854-81c9-d2ebacfac9b7.png)
