@@ -5,18 +5,18 @@ Please create three regex to match next tasks:
 
 ## the current time in format hh:mm:ss
 ```
-/^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/gm
+/^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
 ```
 <a href="https://user-images.githubusercontent.com/87909623/208397150-416af536-e4ce-4d6e-a78c-258cdd43031b.png"> Evidence </a>
 ## ipv4 address
 ```
-^([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])$
+^(([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.){3}([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])$
 ```
 <a href="https://user-images.githubusercontent.com/87909623/208397268-ed32fa04-7912-4b0c-b4ae-d27320125716.png">Link to evidence</a>
 
 ## whole paragraph of test text. Please pick up any text.
 ```
-^.+\n\n$
+^.+\.\n$
 ```
 <a href="https://user-images.githubusercontent.com/87909623/208397369-770ef09e-df17-44ed-a6b9-7b5eaf8d7ae8.png">Link to evidence</a>
 
@@ -31,7 +31,7 @@ ps aux | grep "^$USER" | awk '{print $2}' > pids.txt
 <a href="https://github.com/Camillus83/Task1ExpertSoftserve/blob/main/Task2/pids.txt">pids.txt</a>
 
 ```
-ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{ print $2 }' | sort -n > ip_list.txt
+ifconfig | grep -Eo 'inet (([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.){3}([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])*' | awk '{ print $2 }' | sort -n
 ```
 <a href="https://github.com/Camillus83/Task1ExpertSoftserve/blob/main/Task2/ip_list.txt">ip_list.txt</a>
 
