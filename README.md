@@ -165,7 +165,7 @@ function lastLoggedUsers {
 #   Writes value of active Python processes
 #####################################################
 function checkPythonProcs {
-    answer=$(ps aux | grep python | wc | awk '{ print $1 }')
+    answer=$(ps aux | grep python | grep -v grep | wc | awk '{ print $1 }')
     echo "Number of active Python process: $answer"
 }
 
@@ -177,7 +177,7 @@ function checkPythonProcs {
 #   Writes value of active Perl processes
 #####################################################
 function checkPerlProcs {
-    answer=$(ps aux | grep perl | wc | awk '{ print $1 }')
+    answer=$(ps aux | grep perl | grep -v grep | wc | awk '{ print $1 }')
     echo "Number of active Perl process: $answer"
 }
 
