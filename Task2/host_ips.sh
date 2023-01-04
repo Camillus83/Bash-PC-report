@@ -7,4 +7,4 @@
 
 outputFilename="host_ips.txt"
 
-ifconfig | grep -Eo 'inet ([0-9]{1,3}\.){3}[0-9]{1,3}*' | awk '{ print $2 }' | sort -n > $outputFilename
+ifconfig | grep -Eo 'inet ([0-9]{1,3}\.){3}[0-9]{1,3}*' | awk '{ print $2 }' | sort > $outputFilename
