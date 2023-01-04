@@ -7,5 +7,4 @@
 
 outputFilename="pids.txt"
 
-ps aux | grep "^$USER" | awk '{print $2}' > $outputFilename
-
+pgrep -u "$USER" > $outputFilename

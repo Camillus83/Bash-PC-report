@@ -107,7 +107,8 @@ function lastLoggedUsers {
 #   Writes value of active Python processes
 #####################################################
 function checkPythonProcs {
-    answer=$(ps aux | grep python | grep -v grep | wc | awk '{print $1}')
+    #answer=$(ps aux | grep python | grep -v grep | wc | awk '{print $1}') THE PREVIOUS ONE
+    answer=$(pgrep -f "python" | wc -l)
     echo "Number of active Python process: $answer"
 }
 
@@ -119,7 +120,8 @@ function checkPythonProcs {
 #   Writes value of active Perl processes
 #####################################################
 function checkPerlProcs {
-    answer=$(ps aux | grep perl | grep -v grep | wc | awk '{print $1}')
+    #answer=$(ps aux | grep perl | grep -v grep | wc | awk '{print $1}') THE PREVIOUS ONE
+    answer=$(pgrep -f "perl" | wc -l)
     echo "Number of active Perl process: $answer"
 }
 
@@ -184,16 +186,17 @@ function executeCommand {
 #                    MAIN 
 #####################################################
 if [ $# -eq 0 ]; then
-    echo "Hello" $logged_user
+    echo "Hello" "$logged_user"
     showHelp
-    while [ true ];
+    while true;
     do
-        read -p ">> " inputVal
-        executeCommand $inputVal
+        echo -n ">> "
+        read -r inputVal
+        executeCommand "$inputVal"
     done
 else
     for parameter in "$@" 
     do
-        executeCommand $parameter
+        executeCommand "$parameter"
     done
 fi    
