@@ -1,4 +1,4 @@
-# Task1ExpertSoftserve
+# Bash training
 
 # Task 1
 Please create three regex to match next tasks: 
