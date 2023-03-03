@@ -1,60 +1,16 @@
 # Bash training
 
-# Task 1
-Please create three regex to match next tasks: 
 
-## the current time in format hh:mm:ss
-```
-/^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
-```
-<a href="https://user-images.githubusercontent.com/87909623/208397150-416af536-e4ce-4d6e-a78c-258cdd43031b.png"> Evidence </a>
-## ipv4 address
-```
-^(([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])\.){3}([0-9]|[1-9][0-9]|[1][0-9][0-9]|[2][0-5][0-5])$
-```
-<a href="https://user-images.githubusercontent.com/87909623/208397268-ed32fa04-7912-4b0c-b4ae-d27320125716.png">Link to evidence</a>
-
-## whole paragraph of test text. Please pick up any text.
-```
-^.+\.\n$
-```
-<a href="https://user-images.githubusercontent.com/87909623/208397369-770ef09e-df17-44ed-a6b9-7b5eaf8d7ae8.png">Link to evidence</a>
-
-
-# Task 2
-
-Extract from 'ps' output pids of all the processes run from the current user
-Extract all ip addresses(ipv4 and ipv6) assigned to the host from ifconfig output. Present them in alphabetical order.
-```
-ps aux | grep "^$USER" | awk '{print $2}'
-```
-<a href="https://github.com/Camillus83/Task1ExpertSoftserve/blob/main/Task2/pids.txt">pids.txt</a>
-
-```
-ifconfig | grep -Eo 'inet ([0-9]{1,3}\.){3}[0-9]{1,3}*' | awk '{ print $2 }' | sort -n
-```
-<a href="https://github.com/Camillus83/Task1ExpertSoftserve/blob/main/Task2/host_ips.txt">host_ips.txt</a>
-
-# Task 3
-Parse “access.log” file - find all unique IP addresses.
-Group this IPs and sort them.
-Calculate how much requests being made for each IP.
-```
-cat access.log | awk '{print $1}' | grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}"| sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n | uniq -c | awk '{print $2": " $1}'
-```
-<a href="https://github.com/Camillus83/Task1ExpertSoftserve/blob/main/Task3/ip_list.txt">ip_list.txt</a>
-
-# Task 4
-Write a bash script to check:
+Bash script to check:
 
 <li>Number of CPU Cores</li>
 <li>Disk space</li>
 <li>Size of RAM</li>
 <li>Provide information about the last users which were login on the host</li>
 <li>Calculate the number of active python/perl process</li>
-<li>Create a cron job which will send a report information on email address</li>
+<li>Cron job which will send a report information on email address</li>
 
-User should be possible to choose what exactly he wants to check.
+
 ```
 #!/bin/bash
 #####################################################
